@@ -5,17 +5,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ValidateUserEntry {
-	
+
 	public boolean firstName(String inputStr1) {
 		String namePattern = "^[A-Z]{1}[a-z]{3,9}$";
 		Pattern regex = Pattern.compile(namePattern);
 		Matcher firstNameMatcher = regex.matcher(inputStr1);
-		if (firstNameMatcher.matches()) {
-			System.out.println(inputStr1);
-		} else {
-			System.out.println(inputStr1 + "\n is invalid first name.Kindly input the right one.");
-		}
-		return false;
+
+		if (firstNameMatcher.matches())
+			return true;
+		else
+			return false;
+
 	}
 
 	public boolean lastName(String inputStr2) {
@@ -25,22 +25,26 @@ public class ValidateUserEntry {
 		Matcher firstNameMatcher = regex.matcher(inputStr2);
 		if (firstNameMatcher.matches()) {
 			System.out.println(inputStr2);
+			return true;
 		} else {
-			System.out.println(inputStr2 + " \nis invalid last name.Kindly input the right one.");
+			System.out.println(inputStr2
+					+ " \nis invalid last name.Kindly input the right one.");
+			return false;
 		}
-		return false;
 	}
 
 	public boolean contactNumber(String inputStr3) {
-		String contactNumPattern = "^[0-9]{2}\\s{1}[0-9]{10}$";
+		String contactNumPattern = "^(\\+[0-9]{2}\\s{1})?[0-9]{10}$";
 		Pattern regex = Pattern.compile(contactNumPattern);
 		Matcher contactNumMatcher = regex.matcher(inputStr3);
 		if (contactNumMatcher.matches()) {
 			System.out.println(inputStr3);
+			return true;
 		} else {
-			System.out.println(inputStr3 + " \nis invalid contact number.Kindly input the right one.");
+			System.out.println(inputStr3
+					+ " \nis invalid contact number.Kindly input the right one.");
+			return false;
 		}
-		return false;
 	}
 
 	public boolean emailID(String inputStr4) {
@@ -49,10 +53,12 @@ public class ValidateUserEntry {
 		Matcher emailIDMatcher = regex.matcher(inputStr4);
 		if (emailIDMatcher.matches()) {
 			System.out.println(inputStr4);
+			return true;
 		} else {
-			System.out.println(inputStr4 + " \nis invalid mail address.Kindly input the right one.");
+			System.out.println(inputStr4
+					+ " \nis invalid mail address.Kindly input the right one.");
+			return false;
 		}
-		return false;
 	}
 
 	public static void main(String[] args) {
